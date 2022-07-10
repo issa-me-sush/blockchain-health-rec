@@ -27,7 +27,7 @@ var paid = false;
             if(paid===false)
             { console.log("yo");
             
-               web3.eth.sendTransaction({from:accounts[0],to:addr,value:'1000000000000000'},
+             await  web3.eth.sendTransaction({from:accounts[0],to:addr,value:'100000000000000'},
             function(err, transactionHash) {
                 if (!err)
                 { console.log(transactionHash + " success"); 
