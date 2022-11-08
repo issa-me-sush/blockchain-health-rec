@@ -23,13 +23,13 @@ describe('Records', () => {
 
     it('can add record', async () => {
         await record.methods.setDetails(
-            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants', 'Taylor Smith', '0128993344'
+            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants'
         ).send({ from: accounts[0], gas: '5000000' });
     });
 
     it('can retrieve all record address', async () => {
         await record.methods.setDetails(
-            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants', 'Taylor Smith', '0128993344'
+            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants'
         ).send({ from: accounts[0], gas: '5000000' });
 
         const allRecords = await record.methods.getPatients().call();
@@ -41,7 +41,7 @@ describe('Records', () => {
 
     it('can search for a patient', async () => {
         await record.methods.setDetails(
-            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants', 'Taylor Smith', '0128993344'
+            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants'
         ).send({ from: accounts[0], gas: '5000000' });
         
         const owner = await record.methods.owner().call();
@@ -53,11 +53,11 @@ describe('Records', () => {
 
     it('can create patient using multiple accounts', async () => {
         await record.methods.setDetails(
-            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants', 'Taylor Smith', '0128993344'
+            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants'
         ).send({ from: accounts[0], gas: '5000000' });
 
         await record.methods.setDetails(
-            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants', 'Taylor Smith', '0128993344'
+            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants'
         ).send({ from: accounts[1], gas: '5000000' });
         
         const allRecords = await record.methods.getPatients().call();
@@ -68,7 +68,7 @@ describe('Records', () => {
 
     it('can create appointment using doctor account', async () => {
         await record.methods.setDetails(
-            '001107020345', 'Bane Gateson', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants', 'Taylor Smooth', '0128993344'
+            '001107020345', 'Bane Gateson', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants'
         ).send({ from: accounts[0], gas: '5000000' });
 
         await record.methods.setDoctor(
@@ -86,7 +86,7 @@ describe('Records', () => {
     
     it('can count number of records created by patient', async () => {
         await record.methods.setDetails(
-            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants', 'Taylor Smith', '0128993344'
+            '001107020345', 'John', '0123456789', 'Male', '07/22/2222','183', '75', '1234, Jalan Sekysen 1/3, 31900 Kampar, Perak.', 'O', 'Food', 'Antidepressants'
         ).send({ from: accounts[0], gas: '5000000' });
         
         const patientCount = await record.methods.getPatientCount().call();

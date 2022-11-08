@@ -33,7 +33,7 @@ const HomepageHeading = ({ mobile }) => (
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"></link>
     <Header
       as='h1'
-      content='Universal Health Passport'
+      content='Decentralized Health Records'
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',

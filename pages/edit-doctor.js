@@ -49,7 +49,7 @@ class EditDoctor extends Component {
                 ic, name, phone, gender, dob, qualification, major
             ).send({ from: accounts[0] });
 
-            alert("Doctor account created successfully!");
+            alert("Your profile has been edited  successfully!");
         }
         catch (err) {
             this.setState({ errorMessage: err.message });

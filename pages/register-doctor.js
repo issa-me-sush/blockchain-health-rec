@@ -44,7 +44,7 @@ class RegisterDoctor extends Component {
 
         try {
             await window.ethereum.enable();
-            const accounts = await web3.eth.getAccounts();
+            const accounts = await web3.eth.requestAccounts();
 
             await record.methods.setDoctor(
                 ic, name, phone, gender, dob, qualification, major

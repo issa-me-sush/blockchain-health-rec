@@ -10,14 +10,33 @@ console.log('Getting contract by path...')
 const campaignPath = path.resolve(__dirname, 'contracts', 'Record.sol');
 const source = fs.readFileSync(campaignPath, 'utf8');
 
-console.log('Compiling contract...');
-const output = solc.compile(source, 1).contracts;
+var input = {
+    language: 'Solidity',
+    sources: {
+        'Record.sol' : {
+            content: source
+        }
+    },
+    settings: {
+        outputSelection: {
+            '*': {
+                '*': [ '*' ]
+            }
+        }
+    }
+};
 
-fs.ensureDirSync(buildPath); //recreate build folder
+var output = JSON.parse(solc.compile(JSON.stringify(input)));
 
-for (let contract in output) {
-    fs.outputJsonSync(
-        path.resolve(buildPath, contract.replace(':', '') + '.json'),
-        output[contract]
-    );
+output = output.contracts['Record.sol'];
+
+//will search for the folder to ensure it exists
+//and if not, will make one
+
+fs.ensureDirSync(buildPath);
+
+for (let contract in output){
+  fs.outputJsonSync(
+    path.resolve(buildPath, contract.replace('.sol','') + '.json'), output[contract]
+  );
 }

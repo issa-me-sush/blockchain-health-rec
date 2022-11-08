@@ -50,10 +50,10 @@ class RegisterPatient extends Component {
 
         try {
             await window.ethereum.enable();
-            const accounts = await web3.eth.getAccounts();
-
+            const accounts = await web3.eth.requestAccounts();
+console.log(accounts[0]);
             await record.methods.setDetails(
-                ic, name, phone, gender, dob, height, weight, houseaddr, bloodgroup, allergies, medication, emergencyName, emergencyContact
+                ic, name, phone, gender, dob, height, weight, houseaddr, bloodgroup, allergies, medication
             ).send({ from: accounts[0] });
 
             alert("Account created successfully!");
@@ -61,6 +61,7 @@ class RegisterPatient extends Component {
         }
         catch (err) {
             this.setState({ errorMessage: err.message });
+            console.log(err)
             alert("Account already exists");
         }
 

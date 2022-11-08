@@ -19,7 +19,7 @@ export default props => {
             >
             <MenuBar/>
                 <Icon size='huge' name='hospital'/>
-                <Header as='h2' color='blue' style={{ fontSize:'3em', fontWeight:'normal'}} content='Universal Health Passport'/>
+                <Header as='h2' color='blue' style={{ fontSize:'3em', fontWeight:'normal'}} content='Decentralized Health Records'/>
                 <Header as='h3' style={{ fontSize:'1.5em', fontWeight:'normal'}} content='Ensure that your records are safe and sound'/>
             </Segment>
             

@@ -9,7 +9,7 @@ if(typeof window !== 'undefined' && window.web3 !== 'undefined') {
 } else {
     //We are on the server OR the user is not running metamask
     const provider = new Web3.providers.HttpProvider(
-        'https://rinkeby.infura.io/v3/e35ee66319c2434db8b785bac936a851'
+        'https://rpc.sepolia.org'
     );
 
     web3 = new Web3(provider); 
