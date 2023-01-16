@@ -830,7 +830,7 @@ const instance = new web3.eth.Contract(
             "type": "function"
         }
     ],
-    '0x39496710f3E54F6cbC28e5C4688A5dc0D815C60E' //Deployed Contract Code //Everytime contract code is changed and compiled, need to update this
+    '0x522b9F5c1B6bb4D5788B6a5EF5D16889b5269Db2' //Deployed Contract Code //Everytime contract code is changed and compiled, need to update this
 );
 
 export default instance;
