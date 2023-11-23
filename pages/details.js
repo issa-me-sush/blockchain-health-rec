@@ -79,12 +79,22 @@ var paid = false;
       };
         }
         catch (err) {
-            alert("You don't have permission to view this account");
-            Router.pushRoute('/list');
+            // alert("You don't have permission to view this account");
+            // Router.pushRoute('/list');
+            console.error("Error fetching record details:", err);
+            // Returning an object with error details
+            return { 
+                hasError: true, 
+                errorMessage: "You don't have permission to view this account" 
+            };
         }
     }
 
     renderDisplay(){
+        if (this.props.hasError) {
+            // You can handle the error here or in the render method
+            return null; // or <ErrorComponent message={this.props.errorMessage} />
+        }
         return (
             <Grid columns={2} stackable className="fill-content">
               <Grid.Row>
@@ -241,6 +251,12 @@ var paid = false;
     }
 
     render() {
+        if (this.props.hasError) {
+            alert(this.props.errorMessage);
+            Router.pushRoute('/list');
+            return null; // or <ErrorComponent message={this.props.errorMessage} />
+        }
+    
         return (
             <Layout>
                 <div style={{fontFamily:'Helvetica'}}>
